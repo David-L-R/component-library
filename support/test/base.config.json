@@ -1,0 +1,28 @@
+{
+  "rootDir": "../../",
+  "roots": ["<rootDir>", "<rootDir>/support/test"],
+  "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+  "testMatch": [
+    "<rootDir>/src/**/*.test.{ts,tsx}",
+    "<rootDir>/support/test/testAll/*.test.{ts,tsx}"
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.{ts,tsx}",
+    "!<rootDir>/src/**/*.stories.{ts,tsx}",
+    "!<rootDir>/src/sandbox/**/*"
+  ],
+  "transform": { "^.+\\.[tj]sx?$": "babel-jest" },
+  "collectCoverage": true,
+  "coverageDirectory": "<rootDir>/support/test/__coverage__",
+  "coverageReporters": ["lcov"],
+  "coverageThreshold": {
+    "global": { "branches": 10, "functions": 10, "lines": 10, "statements": 10 }
+  },
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/src/constants"
+  ],
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/support/test/fileMock/media.js",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  }
+}
